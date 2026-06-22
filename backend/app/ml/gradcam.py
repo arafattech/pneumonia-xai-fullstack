@@ -58,7 +58,7 @@ class GradCAM:
         # Global average pool gradients over spatial dims
         weights = self.gradients.mean(dim=(2, 3), keepdim=True)
         cam     = F.relu((weights * self.activations).sum(dim=1).squeeze())
-        cam     = cam.cpu().numpy()
+        cam     = cam.cpu().detach().numpy()
         cam     = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8)
         return cam
 
@@ -82,7 +82,7 @@ def denormalize(tensor: torch.Tensor) -> np.ndarray:
     """Reverse ImageNet normalisation → float32 HWC [0,1]."""
     mean = torch.tensor(settings.IMAGENET_MEAN).view(3, 1, 1)
     std  = torch.tensor(settings.IMAGENET_STD).view(3, 1, 1)
-    img  = (tensor.cpu() * std + mean).permute(1, 2, 0).numpy()
+    img  = (tensor.cpu().detach() * std + mean).permute(1, 2, 0).numpy()
     return np.clip(img, 0, 1)
 
 
