@@ -29,8 +29,11 @@ setup_kaggle() {
     echo "     cp ~/Downloads/kaggle.json ~/.kaggle/"
     echo "     chmod 600 ~/.kaggle/kaggle.json"
     echo ""
-    read -rp "Credentials set korecho? (y/n): " ans
-    [[ "$ans" == "y" ]] || error "Kaggle credentials required"
+    echo ""
+    read -rp "kaggle.json ~/.kaggle/-এ রাখার পর Enter চাপো... " _
+    if [ ! -f "$HOME/.kaggle/kaggle.json" ]; then
+      error "~/.kaggle/kaggle.json এখনো নাই। আগে রাখো তারপর আবার run করো।"
+    fi
   fi
   chmod 600 "$HOME/.kaggle/kaggle.json"
   info "Kaggle credentials OK"
