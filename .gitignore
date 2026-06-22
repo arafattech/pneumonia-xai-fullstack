@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+backend/venv/
+ml_pipeline/venv/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Node / Frontend
+node_modules/
+dist/
+.cache/
+*.local
+
+# Vite
+frontend/dist/
+
+# ML / Data & Weights
+ml_pipeline/data/
+ml_pipeline/models/*.h5
+ml_pipeline/models/*.keras
+ml_pipeline/models/*.pt
+ml_pipeline/models/*.pth
+backend/app/ml/weights/*.pth
+backend/app/ml/weights/*.pt
+ml_pipeline/outputs/
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+
+# Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+.dockerenv
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
